@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mysql_db:
+    image: mysql:8
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  
+  webapp:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+    tty: true
+    restart: always
+    depends_on:
+      - mysql_db
+    environment:
+      - ZOPE_MODE=rel_client
+      - RELSTORAGE_HOST=mysql_db
+      - RELSTORAGE_USER=root
+      - RELSTORAGE_PASS=root
+      # - SENTRY_DSN=""
+      
