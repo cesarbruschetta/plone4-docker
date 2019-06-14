@@ -1,0 +1,8 @@
+[submodule "cabinformatica.skin"]
+	path = src/cabinformatica.skin
+	url = https://github.com/cesarbruschetta/cabinformatica.skin.git
+	branch = master
+[submodule "myportal.skin"]
+	path = src/myportal.skin
+	url = https://github.com/cesarbruschetta/myportal.skin.git
+	branch = master
