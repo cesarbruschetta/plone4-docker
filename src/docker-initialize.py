@@ -14,9 +14,12 @@ class Environment(object):
 
     def relstorage(self):
         """Relstorage configuration."""
-        DATABASE_URL = self.env.get('DATABASE_URL', None)
+        RELSTORAGE_HOST = self.env.get('RELSTORAGE_HOST', None)
+        RELSTORAGE_DB = self.env.get('RELSTORAGE_DB', None)
+        RELSTORAGE_USER = self.env.get('RELSTORAGE_USER', None)
+        RELSTORAGE_PASS = self.env.get('RELSTORAGE_PASS', None)
 
-        if not DATABASE_URL:
+        if not RELSTORAGE_HOST:
             return
 
         config = ""
@@ -24,13 +27,13 @@ class Environment(object):
             config = cfile.read()
 
         config = config.replace(
-            'DB-host', DATABASE_URL.split('@')[1].split(':')[0]
+            'DB-host', RELSTORAGE_HOST
         ).replace(
-            'DB-name', DATABASE_URL.split('/')[-1]
+            'DB-name', RELSTORAGE_DB
         ).replace(
-            'DB-user', DATABASE_URL.split('//')[1].split(':')[0]
+            'DB-user', RELSTORAGE_USER
         ).replace(
-            'DB-password', DATABASE_URL.split('//')[1].split(':')[1].split('@')[0]
+            'DB-password', RELSTORAGE_PASS
         )
 
         with open(self.zope_conf, "w") as cfile:

@@ -8,8 +8,7 @@ RUN mv /plone/instance/src/custom_buildout.cfg /plone/instance/ && \
 RUN apk --update add --no-cache --virtual .build-deps \
         mariadb-dev libffi-dev build-base && \
     buildout -c /plone/instance/custom_buildout.cfg && \
-    rm -rf bin/buildout \
-    && chown -R plone:plone /plone /data \
+    chown -R plone:plone /plone /data \
     && apk del .build-deps \
     && rm -rf /plone/buildout-cache/downloads/*
 
