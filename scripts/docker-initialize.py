@@ -18,6 +18,7 @@ class Environment(object):
         RELSTORAGE_DB = self.env.get('RELSTORAGE_DB', None)
         RELSTORAGE_USER = self.env.get('RELSTORAGE_USER', None)
         RELSTORAGE_PASS = self.env.get('RELSTORAGE_PASS', None)
+        DSN_SENTRY = self.env.get('DSN_SENTRY', None)
 
         if not RELSTORAGE_HOST:
             return
@@ -34,6 +35,8 @@ class Environment(object):
             'DB-user', RELSTORAGE_USER
         ).replace(
             'DB-password', RELSTORAGE_PASS
+        ).replace(
+            'DSN-sentry', DSN_SENTRY
         )
 
         with open(self.zope_conf, "w") as cfile:

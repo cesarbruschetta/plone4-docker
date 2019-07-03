@@ -12,16 +12,15 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     ports:
-      - "8080:8080"
+      - "8888:8080"
     tty: true
     restart: always
     depends_on:
       - mysql_db
     environment:
-      - ZOPE_MODE=rel_client
       - RELSTORAGE_HOST=mysql_db
       - RELSTORAGE_DB=plone
       - RELSTORAGE_USER=root
       - RELSTORAGE_PASS=root
-      # - SENTRY_DSN=""
+      - DSN_SENTRY=""
       
