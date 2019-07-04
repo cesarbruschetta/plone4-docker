@@ -35,9 +35,12 @@ class Environment(object):
             'DB-user', RELSTORAGE_USER
         ).replace(
             'DB-password', RELSTORAGE_PASS
-        ).replace(
-            'DSN-sentry', DSN_SENTRY
         )
+        
+        if DSN_SENTRY:
+            config = config.replace(
+                'DSN-sentry', DSN_SENTRY
+            )
 
         with open(self.zope_conf, "w") as cfile:
             cfile.write(config)
