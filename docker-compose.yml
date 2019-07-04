@@ -23,5 +23,5 @@ services:
       - RELSTORAGE_DB=plone
       - RELSTORAGE_USER=root
       - RELSTORAGE_PASS=root
-      - DSN_SENTRY=""
+      # - DSN_SENTRY=""
       

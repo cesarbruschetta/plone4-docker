@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-COMMANDS="debug help logtail show stop adduser fg kill quit run wait console foreground logreopen reload shell status"
+COMMANDS="debug help logtail show stop adduser fg kill quit run wait foreground logreopen reload shell status"
 START="start restart console"
 CMD="bin/instance"
 
@@ -22,7 +22,7 @@ if [[ $START == *"$1"* ]]; then
   }
 
   trap _stop SIGTERM SIGINT
-  gosu plone $CMD start
+  gosu plone $CMD console
   gosu plone $CMD logtail &
   child=$!
 

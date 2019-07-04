@@ -1,6 +1,7 @@
 #!/plone/instance/bin/python
 """Configure RelStorage."""
 import os
+import re
 
 
 class Environment(object):
@@ -41,6 +42,9 @@ class Environment(object):
             config = config.replace(
                 'DSN-sentry', DSN_SENTRY
             )
+        else:
+            REGEX = r"<sentry>[.\s\S]+<\/sentry>"
+            config = re.sub(REGEX,"",config)
 
         with open(self.zope_conf, "w") as cfile:
             cfile.write(config)
