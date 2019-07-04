@@ -1,7 +1,6 @@
 # Docker para Plone 4.3
 
 [![](https://images.microbadger.com/badges/image/cesarbruschetta/plone.svg)](https://microbadger.com/images/cesarbruschetta/plone "Get your own image badge on microbadger.com")
-
 [![](https://images.microbadger.com/badges/version/cesarbruschetta/plone.svg)](https://microbadger.com/images/cesarbruschetta/plone "Get your own version badge on microbadger.com")
 
 # Caracteristicas
