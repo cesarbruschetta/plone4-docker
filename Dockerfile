@@ -41,6 +41,7 @@ RUN buildDeps="dpkg-dev gcc libbz2-dev libc6-dev libjpeg62-turbo-dev libopenjp2-
  && rm -rf /plone/downloads/*
 
 COPY scripts/* /
+RUN chmod +x /docker-entrypoint.sh /docker-initialize.py
 
 EXPOSE 8080
 WORKDIR /plone/instance
