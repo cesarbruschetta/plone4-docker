@@ -48,5 +48,5 @@ WORKDIR /plone/instance
 HEALTHCHECK --interval=1m --timeout=5s --start-period=1m \
   CMD nc -z -w5 127.0.0.1 8080 || exit 1
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "/docker-entrypoint.sh"]
 CMD ["console"]
