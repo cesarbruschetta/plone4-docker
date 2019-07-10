@@ -21,11 +21,6 @@ Utilize o arquivo `docker-compose.yml` para alterar as variavles de ambiente e p
     $ docker-compose up -d
 ```
 
-
 ## Referencias
 - https://github.com/BriefyHQ/plone
 - https://github.com/plone/plone.docker/blob/master/4.3/4.3.18/
-
-
-
-
